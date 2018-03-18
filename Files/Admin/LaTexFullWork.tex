@@ -1,0 +1,107 @@
+﻿\documentclass[a4paper,14pt]{article} % Параметры документа: Лист А4, размер шрифта, тип документа-статья
+\usepackage[T2A] {fontenc}
+\usepackage[utf8]{inputenc} % Кодировка для работы на Windows
+\usepackage[english,russian]{babel} % Пакет русского алфавита
+\usepackage{extsizes}
+\renewcommand{\rmdefault}{cmr}
+\usepackage{indentfirst}
+\usepackage{amssymb,amsfonts,amsmath,cite,enumerate,float,indentfirst}
+\usepackage{tocvsec2}
+\usepackage{setspace,amsmath}
+\usepackage[left=20mm, top=15mm, right=15mm, bottom=15mm, nohead, footskip=10mm]{geometry}
+\usepackage{fancybox,fancyhdr} % Пакет для работы с колонтикулами
+\usepackage{comment}
+\usepackage {cite} %Для цитирования \cite и куда ссылка
+\usepackage[pdftex]{graphics} % Работа с изображениями 
+\graphicspath{common} %Сюда вбить путь к папке с изображениями
+
+
+
+
+\begin{document} % Начало документа
+
+\graphicspath{noiseimages/}
+\input{data}
+\uchyph=0
+\hyphenpenalty 50
+
+\thispagestyle{empty}
+
+
+\begin{center}
+	\Pref
+\end{center}
+
+\begin{center} % Текст в центре
+	\MakeUppercase{<<\UniversityName>>} 
+\end{center} 
+
+\vspace{1em}
+
+\begin{center} 
+	\University
+\end{center}
+
+\begin{center} 
+{Кафедра: \textbf{\Kaf}} 
+\end{center} 
+
+\vspace{5em} % Длина смещения вниз
+
+\begin{center} 
+	\MakeUppercase{\Large\bfРеферат} 
+\end{center}
+\begin{center} 
+	\Dis 
+\end{center} 
+ 
+\vspace{1em} 
+
+\begin{center} 
+	\Large\MakeUppercase{\textbf{<<\Theme>>}}
+\end{center} 
+
+\vspace{9em} 
+
+\newbox{\lbox} 
+\savebox{\lbox}{\hbox{\workAuthor}} 
+\newlength{\maxl} 
+\setlength{\maxl}{\wd\lbox} 
+\hfill\parbox{11cm}
+{ 
+\hspace*{-5cm}Студент:\hfill\hbox to\maxl{\workAuthor}\\ 
+\hspace*{-5cm}Преподаватель:\hfill\hbox to\maxl{\Teacher}\\ 
+\\ 
+\hspace*{-5cm}Группа:\hfill\hbox to\maxl{\Group}\\ 
+} 
+
+\vspace{\fill} 
+
+\begin{center} 
+	\City \hspace*{1em} \Yearг. 
+\end{center}
+
+\newpage
+
+\section*{Описание работы}
+\Disk
+\newpage
+
+\tableofcontents 
+\newpage
+
+\section*{Введение}
+\Intro
+\newpage
+
+\Tex
+\newpage
+
+\section*{Заключение}
+\Concle
+\newpage
+
+\bibliographystyle{utf8gost705u} 
+\bibliography{biblio}
+
+\end{document}
